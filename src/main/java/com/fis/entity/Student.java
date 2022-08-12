@@ -21,7 +21,7 @@ public class Student {
 	@Column(nullable = false)
 	private String name;
 
-	@Column(nullable = false)
+	@Column(unique = true)
 	private long phoneNo;
 
 	@Column(nullable = false)
@@ -79,7 +79,7 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", name=" + name + ", phoneNo=" + phoneNo + ", city=" + city + "]";
+		return "Student - [ id = " + id + ", name = " + name + ", phoneNo = " + phoneNo + ", city = " + city + " ]";
 	}
 
 }

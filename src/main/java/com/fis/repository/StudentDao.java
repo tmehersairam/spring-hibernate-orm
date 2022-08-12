@@ -2,44 +2,18 @@ package com.fis.repository;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
-import org.springframework.orm.hibernate5.HibernateTemplate;
-
 import com.fis.entity.Student;
 
-@Transactional
-public class StudentDao {
+public interface StudentDao {
 
-	HibernateTemplate hibernateTemplate;
+	int insert(Student student);
 
-	public HibernateTemplate getHibernateTemplate() {
-		return hibernateTemplate;
-	}
+	void update(Student student);
 
-	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
-		this.hibernateTemplate = hibernateTemplate;
-	}
+	void delete(Student student);
 
-	public Student get(int id) {
-		return hibernateTemplate.get(Student.class, id);
-	}
+	Student get(int id);
 
-	public int insert(Student student) {
+	List<Student> getAll();
 
-		return (int) hibernateTemplate.save(student);
-	}
-
-	public void update(Student student) {
-
-		hibernateTemplate.update(student);
-	}
-
-	public void delete(Student student) {
-		hibernateTemplate.delete(student);
-	}
-
-	public List<Student> getAll() {
-		return hibernateTemplate.loadAll(Student.class);
-	}
 }
